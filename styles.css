@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 :root {
-    --color-primario: #E0D6F8;
-    --color-secundario: #CAA0E3;
+    --color-primario: #390B52;
+    --color-secundario: #55107A;
+    --color-terceario: #2C083F;
+    --color-cuaternario: #A61FEE;
+    --color-quintario: #911BD1;
 
-    --color-fuente: #AE54E3;
-    --color-texto: #000000;
+    --color-fuente: #DFB5F8;
+    --color-texto: #f0f0f0 ;
 
     --fuente-inter: "Inter", sans-serif;
 }
@@ -58,7 +61,8 @@ body {
     font-size: 1.5rem; /* 1REM = 16px */
     font-weight: 600;
     text-decoration: none; /* Sin decoración */
-    color: var(--color-fuente)
+    color: var(--color-fuente);
+    
 }
 
 .contenedor_texto{
@@ -76,11 +80,14 @@ body {
 
 .mensaje {
     display: flex;
-    /*pertenece a flex -> flexbox*/
     align-items: center;
     justify-content: space-between;
-    /*margin: 5%;*/
-    padding: 7% 15%;
+    padding: 7% 5%; /* Ajustamos los porcentajes para asegurar que no desborde */
+    gap: 100px; /* Reduce el espacio entre el texto y la imagen */
+    max-width: 1200px; /* Limita el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    box-sizing: border-box;
+    
 }
 
 .section_contenedor{
@@ -91,8 +98,10 @@ body {
 }
 
 .contenedor_texto {
-    font-family: var(--fuente-montserrat);
+    font-family: var(--fuente-inter);
     font-size: 1.5rem;
+    text-align-last: center;
+
 }
 
 .dibujo {
