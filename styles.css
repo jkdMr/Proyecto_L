@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root {
+    --color-primario: #E0D6F8;
+    --color-secundario: #CAA0E3;
+
+    --color-fuente: #AE54E3;
+    --color-texto: #000000;
+
+    --fuente-inter: "Inter", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-inter);
+}
+
+header {
+    
+    background-color: var(--color-primario);
+
+}
+
+body {
+    color: var(--color-secundario);
+    background-color: var(--color-secundario);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita que el contenido desborde horizontalmente */
+}
+
+.logo {
+    width: 90px;
+    height: 90px;   
+    padding-left: 40px;
+}
+
+.header {
+    width: 100%;
+    height: 115px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espacia el logo y el menú */
+    align-items: center; /* Alinea verticalmente los elementos */
+    padding-right: 40px; /* Separación entre el menú y el borde derecho */
+}
+
+.header_menu{
+    display: flex;
+    gap: 50px; /* Reduce el espacio entre los enlaces */
+    padding-right: 40px; /* Ajusta el padding para evitar desbordamiento */
+}
+
+
+.header_menu_link {
+    font-family: var(--fuente-inter);  /* Mantén el diseño de texto */
+    font-size: 1.5rem; /* 1REM = 16px */
+    font-weight: 600;
+    text-decoration: none; /* Sin decoración */
+    color: var(--color-fuente)
+}
+
+.contenedor_texto{
+    color: var(--color-texto) ;
+}
+
+.alerta {
+    position: fixed; /* Fija la alerta en la pantalla aunque hagas scroll */
+    bottom: 20px;    /* Distancia desde la parte inferior de la pantalla */
+    right: 20px;     /* Distancia desde la parte derecha de la pantalla */
+    color: white;    /* Color del texto */
+    font-size: 1rem;
+}
+
+
+.mensaje {
+    display: flex;
+    /*pertenece a flex -> flexbox*/
+    align-items: center;
+    justify-content: space-between;
+    /*margin: 5%;*/
+    padding: 7% 15%;
+}
+
+.section_contenedor{
+    width: 100%; /* Asegura que no se exceda del contenedor */
+    max-width: 100%; /* Evita que el ancho exceda la pantalla */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    box-sizing: border-box;
+}
+
+.contenedor_texto {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+}
+
+.dibujo {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho disponible */
+    max-width: 412px; /* No permite que la imagen sea más ancha de 512px */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
