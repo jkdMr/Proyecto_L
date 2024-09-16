@@ -197,13 +197,16 @@ button:hover{
         flex-direction: column; /* Cambia el diseño a una columna */
         gap: 20px; /* Reduce el espacio entre el texto y la imagen */
     }
+
     .contenedor_texto {
         font-size: 1.2rem;
     }
+
     .dibujo {
         width: 80%; /* Hace que la imagen ocupe todo el ancho disponible */
         max-width: 320px; /* No permite que la imagen sea más ancha de 512px */
     }
+
     .Juego {
         flex-direction: column; /* Cambia las cartas a una disposición vertical */
         gap: 20px; /* Reduce el espacio entre las cartas */
@@ -220,17 +223,16 @@ button:hover{
         padding: 10px;
     }
 
-    .logo{
+    .logo {
         width: 60px;
-        height: 60px;         
+        height: 60px;
         padding-left: 0px;
     }
 
-    
     .header_menu_link {
         font-size: 1rem; /* Reduce el tamaño del texto del menú */
     }
-    
+
     button {
         height: 80px;
         width: 80px;
@@ -248,5 +250,14 @@ button:hover{
     
     .Juego {
         min-height: auto; /* Quita el min-height para que se ajuste al contenido */
+    }
+
+    /* Ajustes adicionales sugeridos */
+    .cartas {
+        padding: 5px 8px; /* Reduce el padding para móviles */
+    }
+
+    .titulo_juego {
+        font-size: 1.3rem; /* Ajusta el tamaño del título para pantallas pequeñas */
     }
 }
