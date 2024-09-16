@@ -112,3 +112,29 @@ botonReiniciar.addEventListener('click', inicializarJuego);
 
 // Inicializar el juego al principio
 inicializarJuego();
+
+
+
+//----------------------------------------------burbujas-------------------------------------------//
+// Función para generar las burbujas según el tamaño de la ventana
+function generarBurbujas() {
+    const anchoPantalla = window.innerWidth;
+    const totalBubbles = anchoPantalla <= 375 ? 15 : anchoPantalla <= 768 ? 30 : anchoPantalla <= 1500 ? 10 : 40; // 15 para móviles, 30 para tablets, 50 para pantallas grandes
+    const bubbleContainer = document.getElementById('bubble-container');
+    
+    // Limpia el contenedor de burbujas si ya hay burbujas previas
+    bubbleContainer.innerHTML = '';
+
+    // Generar los span dinámicamente
+    for (let i = 0; i < totalBubbles; i++) {
+        const bubble = document.createElement('span');
+        bubble.style.setProperty('--i', Math.floor(Math.random() * 40 + 10)); // Valor aleatorio para animación
+        bubbleContainer.appendChild(bubble);
+    }
+}
+
+// Llama a la función cuando cargue la página
+window.onload = generarBurbujas;
+
+// También puedes volver a generar burbujas si la ventana cambia de tamaño
+window.onresize = generarBurbujas;
