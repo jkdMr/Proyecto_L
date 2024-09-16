@@ -190,7 +190,7 @@ button:hover{
 @media (max-width: 768px) {
     .header_menu {
         gap: 20px; /* Reduce el espacio entre los elementos del menú */
-        padding-right: 20px;
+        padding-right: 0px;
     }
     
     .mensaje {
@@ -222,8 +222,7 @@ button:hover{
 
     .logo{
         width: 60px;
-        height: 60px; 
-        
+        height: 60px;         
         padding-left: 0px;
     }
 
