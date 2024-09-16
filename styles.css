@@ -6,8 +6,10 @@
     --color-cuaternario: #A61FEE;
     --color-quintario: #911BD1;
 
-    --color-fuente: #DFB5F8;
+    --color-fuente: #E3BEF9;
     --color-texto: #f0f0f0 ;
+     
+    --color-textojuego: #F5E8FD;
 
     --fuente-inter: "Inter", sans-serif;
 }
@@ -20,23 +22,35 @@
 
 header {
     
-    background-color: var(--color-primario);
+    background-color: var(--color-terceario);
 
 }
 
 body {
     color: var(--color-secundario);
-    background-color: var(--color-secundario);
+    background: rgb(57,11,82);
+    background: radial-gradient(circle, rgba(57,11,82,1) 0%, rgba(85,16,122,1) 50%, rgba(44,8,63,1) 100%);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden; /* Evita que el contenido desborde horizontalmente */
+    
+}
+
+main {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
 .logo {
     width: 90px;
     height: 90px;   
     padding-left: 40px;
+}
+
+.logo:hover {
+    cursor: pointer;
 }
 
 .header {
@@ -103,9 +117,137 @@ body {
     text-align-last: center;
 
 }
+.section_contenedor_general{
+    color: var(--color-textojuego);
+
+}
 
 .dibujo {
     width: 100%; /* Hace que la imagen ocupe todo el ancho disponible */
     max-width: 412px; /* No permite que la imagen sea más ancha de 512px */
     height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/*Diversion*/
+
+.titulo_juego {
+    color: var(--color-textojuego);
+    padding: 10px;
+}
+
+.Juego {
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-direction: row; /* Si quieres que las cartas y el título estén uno encima de otro */
+    min-height: 80vh; /* Asegura que ocupe el 100% de la altura de la ventana */
+    
+}
+
+.cartas{
+    background-color: rgba(255,255,255,0.2);
+    padding: 0 10px 10px 10px;
+    border-radius: 8px;
+}
+
+h1{
+    text-align: center;
+    
+}
+
+button{
+    height: 100px;
+    width: 100px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.informacion {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 18px;
+    width: 300px;
+    height: 140px;
+    text-align-last: center;
+}
+
+ .estadistica {
+    padding: 20px 10px;
+    box-sizing: border-box;
+    color: var(--color-textojuego);
+
+}
+
+
+.imagen_memoria {
+    width: 99%;
+}
+
+/*<!--Responsi-->*/
+
+@media (max-width: 768px) {
+    .header_menu {
+        gap: 20px; /* Reduce el espacio entre los elementos del menú */
+        padding-right: 20px;
+    }
+    
+    .mensaje {
+        flex-direction: column; /* Cambia el diseño a una columna */
+        gap: 20px; /* Reduce el espacio entre el texto y la imagen */
+    }
+    .contenedor_texto {
+        font-size: 1.2rem;
+    }
+    .dibujo {
+        width: 80%; /* Hace que la imagen ocupe todo el ancho disponible */
+        max-width: 320px; /* No permite que la imagen sea más ancha de 512px */
+    }
+    .Juego {
+        flex-direction: column; /* Cambia las cartas a una disposición vertical */
+        gap: 20px; /* Reduce el espacio entre las cartas */
+    }
+
+    .informacion {
+        width: 100%; /* Hace que la información ocupe todo el ancho disponible */
+    }
+}
+
+@media (max-width: 375px) {
+    .header {
+        height: auto; /* Ajusta la altura del header para pantallas pequeñas */
+        padding: 10px;
+    }
+
+    .logo{
+        width: 60px;
+        height: 60px; 
+        
+        padding-left: 0px;
+    }
+
+    
+    .header_menu_link {
+        font-size: 1rem; /* Reduce el tamaño del texto del menú */
+    }
+    
+    button {
+        height: 80px;
+        width: 80px;
+        font-size: 1rem;
+    }    
+
+    .informacion {
+        height: auto; /* Ajusta la altura de la información */
+        padding: 10px;
+    }
+
+    .estadistica {
+        padding: 10px 5px; /* Reduce el padding en la estadística */
+    }
+    
+    .Juego {
+        min-height: auto; /* Quita el min-height para que se ajuste al contenido */
+    }
 }
