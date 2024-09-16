@@ -37,6 +37,55 @@ body {
     
 }
 
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Asegura que las burbujas estén detrás */
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s/ var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+
+/*movimiento*/
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/*-------------------------*/
+
 main {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
@@ -140,15 +189,37 @@ main {
     display: flex;
     align-items: center;
     gap: 40px;
-    flex-direction: row; /* Si quieres que las cartas y el título estén uno encima de otro */
+    flex-direction: column; /* Si quieres que las cartas y el título estén uno encima de otro */
     min-height: 80vh; /* Asegura que ocupe el 100% de la altura de la ventana */
-    
+    z-index: 1; /* El tablero debe estar por encima del fondo */
+}
+
+.juego_contenido{
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-direction: row; /* Si quieres que las cartas y el título estén uno encima de otro */
+}
+
+.Resultado{
+    display: flex;
+    align-items: center;
+}
+
+.container_boton{
+  color: var(--color-primario);
+  height: 60px;
+  width: 120px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .cartas{
     background-color: rgba(255,255,255,0.2);
     padding: 0 10px 10px 10px;
     border-radius: 8px;
+    
 }
 
 h1{
@@ -159,6 +230,9 @@ h1{
 button{
     height: 100px;
     width: 100px;
+    border: solid 3px;
+    border-radius: 18px;
+    border-color: var(--color-terceario);
 }
 
 button:hover{
@@ -180,10 +254,11 @@ button:hover{
 
 }
 
-
 .imagen_memoria {
-    width: 99%;
+    width:99%;
 }
+
+
 
 /*<!--Responsi-->*/
 

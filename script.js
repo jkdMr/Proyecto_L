@@ -1,109 +1,114 @@
-//Inicializar
+// Inicializar
 let tarjetasDestapadas = 0;
-let tarjeta1=null;
-let tarjeta2=null;
+let tarjeta1 = null;
+let tarjeta2 = null;
 let Presultado = null;
 let Sresultado = null;
 let movimientos = 0;
 let acierto = 0;
-let tempo=false;
-//let timer=30;
-//let tiempoRegresivo = null;
-//let timerInicial = timer;
+let tempo = false;
+let numeros = [];
 
-//ver documento HTML
+// Ver documento HTML
 let MostrarMov = document.getElementById('movimientos');
 let MostrarAci = document.getElementById('acierto');
-//let mostrarTiempo = document.getElementById('t-restante');
+let botonReiniciar = document.getElementById('reiniciar');
 
-//generacion de numeros aleatorios
-let numeros = [1,1,2,2,3,3,4,4,5,5,6,6];
-numeros = numeros.sort(()=>{return Math.random()-0.5});
-console.log(numeros);
+// Función para inicializar el juego
+function inicializarJuego() {
+    tarjetasDestapadas = 0;
+    tarjeta1 = null;
+    tarjeta2 = null;
+    Presultado = null;
+    Sresultado = null;
+    movimientos = 0;
+    acierto = 0;
+    tempo = false;
+    
+    // Actualizar las vistas
+    MostrarMov.innerHTML = `Movimientos: ${movimientos}`;
+    MostrarAci.innerHTML = `Aciertos: ${acierto}`;
 
-/* Funcion restar tiempo
-function contarTiempo(){
-    tiempoRegresivo=setInterval(()=>{
-        timer--;
-        mostrarTiempo.innerHTML=`Tiempo: ${timer} segundos`;
-        if(timer == 0){
-            clearInterval(tiempoRegresivo);
-            bloquearTarjeta();
-        }
-    }, 1000);
+    // Generar y mezclar números
+    numeros = [1,1,2,2,3,3,4,4,5,5,6,6];
+    numeros = numeros.sort(() => Math.random() - 0.5);
+    console.log(numeros);
+
+    // Limpiar las tarjetas
+    for (let i = 0; i <= 11; i++) {
+        let tarjeta = document.getElementById(i);
+        tarjeta.innerHTML = '';  // Limpiar el contenido de la tarjeta
+        tarjeta.disabled = false; // Habilitar nuevamente las tarjetas
+    }
+
+    // Deshabilitar el botón de reiniciar
+    botonReiniciar.setAttribute('disabled', 'true');
 }
-*/
 
-function bloquearTarjeta(){
-    for (let i = 0; i<=15; i++){
+// Función para bloquear las tarjetas (por si el juego termina o se acaba el tiempo)
+function bloquearTarjeta() {
+    for (let i = 0; i <= 11; i++) {
         let tarjetaBloqueada = document.getElementById(i);
         tarjetaBloqueada.innerHTML = numeros[i];
-        tarjetaBloqueada.disabled=true;
+        tarjetaBloqueada.disabled = true;
     }
 }
 
-//funcion principal
-function destapar(id){
-
-    /*
-    if(tempo==false){
-         contarTiempo();
-        tempo=true;
-    }
-    */
-
+// Función principal para destapar tarjetas
+function destapar(id) {
     tarjetasDestapadas++;
-    console.log(tarjetasDestapadas);
-
-    if(tarjetasDestapadas==1){
-        //Mostrar el 1er numero
-        tarjeta1=document.getElementById(id);
+    
+    if (tarjetasDestapadas == 1) {
+        // Mostrar el primer número
+        tarjeta1 = document.getElementById(id);
         Presultado = numeros[id];
         tarjeta1.innerHTML = `<img class="imagen_memoria" src="./imagen_memoria/${Presultado}.png">`;
-
-        //deshabilitar primer boton
         tarjeta1.disabled = true;
-    }else if(tarjetasDestapadas == 2){
-        //Mostrar el 2do numero
-        tarjeta2=document.getElementById(id);
-        Sresultado=numeros[id];
-        tarjeta2.innerHTML=`<img class="imagen_memoria" src="./imagen_memoria/${Sresultado}.png">`;
+    } else if (tarjetasDestapadas == 2) {
+        // Mostrar el segundo número
+        tarjeta2 = document.getElementById(id);
+        Sresultado = numeros[id];
+        tarjeta2.innerHTML = `<img class="imagen_memoria" src="./imagen_memoria/${Sresultado}.png">`;
+        tarjeta2.disabled = true;
 
-        //deshabilitar segundo boton
-        tarjeta2.disabled=true;
-        
-        //incrementar movimientos
+        // Incrementar movimientos
         movimientos++;
-        MostrarMov.innerHTML = `Movimientos: ${movimientos} `;
+        MostrarMov.innerHTML = `Movimientos: ${movimientos}`;
 
-        if (Presultado == Sresultado){
-            //Reiniciar contador tar-desta
-            tarjetasDestapadas=0;
-
-            //Aumento aciertos
+        // Comprobar si son iguales
+        if (Presultado === Sresultado) {
+            tarjetasDestapadas = 0;
             acierto++;
-            MostrarAci.innerHTML=`Aciertos: ${acierto}`;
+            MostrarAci.innerHTML = `Aciertos: ${acierto}`;
+            
+            // Comprobar si el juego ha terminado
+            if (acierto == 6) {
+                MostrarAci.innerHTML = `Aciertos: ${acierto} 😁😎`;
 
-            if(acierto == 6 ){
-                MostrarAci.innerHTML=`Aciertos: ${acierto} 😁😎`;
-                //deter tiempo
-                //clearInterval(tiempoRegresivo);
+                // Activar el botón de reiniciar
+                botonReiniciar.removeAttribute('disabled');
 
-                if(movimientos <= 10){
-                    MostrarMov.innerHTML = `Movimientos: ${movimientos} 🤯🥳` ;
+                if (movimientos<=10){
+                    MostrarMov.innerHTML=`Movimientos: ${movimientos} 🐇🎊`
                 }else{
-                    MostrarMov.innerHTML = `Movimientos: ${movimientos} 🥴🥱`;
+                    MostrarMov.innerHTML=`Movimientos: ${movimientos} 🐢🧨`
                 }
-                //mostrarTiempo.innerHTML = `Fantastico! solo demoraste ${timerInicial - timer} segundos`
             }
-        }else{
-            setTimeout(()=>{
-                tarjeta1.innerHTML= '';
-                tarjeta2.innerHTML='';
-                tarjeta1.disabled=false;
-                tarjeta2.disabled=false;
-                tarjetasDestapadas=0;
-            },800);
+        } else {
+            // Volver a ocultar las tarjetas después de un pequeño retraso
+            setTimeout(() => {
+                tarjeta1.innerHTML = '';
+                tarjeta2.innerHTML = '';
+                tarjeta1.disabled = false;
+                tarjeta2.disabled = false;
+                tarjetasDestapadas = 0;
+            }, 800);
         }
     }
 }
+
+// Función para reiniciar el juego cuando se presione el botón
+botonReiniciar.addEventListener('click', inicializarJuego);
+
+// Inicializar el juego al principio
+inicializarJuego();

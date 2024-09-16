@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniJuego</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
     <header class="header">
-        
+        <a href="https://www.youtube.com/watch?v=9ztWZuZYBBo" target="_blank">
         <img class="logo" src="imagenes/logo (1).png" alt="duxito">
+        </a>
         
         <nav class="header_menu">
             <a class="header_menu_link" href="index.html">Inicio</a>
@@ -20,42 +20,75 @@
             <a class="header_menu_link" href="Diversion.html">MiniJuego</a>
         </nav>
     
-        </header>
+        </header>   
 
     <main class="Juego">
-        <section class="cartas">
-            <h1 class="titulo_juego"> ♤ Juego de Memoria ♤</h1>
-            <table>
-                <tr>
-                    <td><button id="0" onclick="destapar(0)"></button></td>
-                    <td><button id="1" onclick="destapar(1)"></button></td>
-                    <td><button id="2" onclick="destapar(2)"></button></td>
-                    <td><button id="3" onclick="destapar(3)"></button></td>
-                </tr>
-                <tr>
-                    <td><button id="4" onclick="destapar(4)"></button></td>
-                    <td><button id="5" onclick="destapar(5)"></button></td>
-                    <td><button id="6" onclick="destapar(6)"></button></td>
-                    <td><button id="7" onclick="destapar(7)"></button></td>
-                </tr>
-                <tr>
-                    <td><button id="8" onclick="destapar(8)"></button></td>
-                    <td><button id="9" onclick="destapar(9)"></button></td>
-                    <td><button id="10" onclick="destapar(10)"></button></td>
-                    <td><button id="11" onclick="destapar(11)"></button></td>
-                </tr>
-            </table>
+        <section class="juego_contenido">
+            <section class="cartas">
+                <h1 class="titulo_juego"> ♤ Juego de Memoria ♤</h1>
+                <table>
+                    <tr>
+                        <td><button id="0" onclick="destapar(0)"></button></td>
+                        <td><button id="1" onclick="destapar(1)"></button></td>
+                        <td><button id="2" onclick="destapar(2)"></button></td>
+                        <td><button id="3" onclick="destapar(3)"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="4" onclick="destapar(4)"></button></td>
+                        <td><button id="5" onclick="destapar(5)"></button></td>
+                        <td><button id="6" onclick="destapar(6)"></button></td>
+                        <td><button id="7" onclick="destapar(7)"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="8" onclick="destapar(8)"></button></td>
+                        <td><button id="9" onclick="destapar(9)"></button></td>
+                        <td><button id="10" onclick="destapar(10)"></button></td>
+                        <td><button id="11" onclick="destapar(11)"></button></td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="informacion">
+                <h2 id= "acierto" class="estadistica"> Aciertos: 0</h2>
+                <h2 id= "movimientos" class="estadistica">Movimientos: 0</h2>
+                <!--<h2 id= "t-restante" class="estadistica">Tiempo: 30 segundos</h2>-->
+            </section>
+         
+        </section>   
+
+        <section class="Resultado">
+            <button id="reiniciar" class="container_boton" onclick="inicializarJuego()" disabled>Reiniciar</button>  
         </section>
 
-        <section class="informacion">
-            <h2 id= "acierto" class="estadistica"> Aciertos: 0</h2>
-            <h2 id= "movimientos" class="estadistica">Movimientos: 0</h2>
-            <!--<h2 id= "t-restante" class="estadistica">Tiempo: 30 segundos</h2>-->
-        </section>
         
     </main>
     
+
+    <!-- Animación de burbujas -->
+    <div class="container">
+        <div class="bubbles">
+            <span style="--i:15;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:30;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:31;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:37;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:27;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:16;"></span>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
+
 </body>
 
 </html>
