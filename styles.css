@@ -6,6 +6,8 @@
     --color-cuaternario: #A61FEE;
     --color-quintario: #911BD1;
 
+    --color-fondo-juego: #6F3E88;
+
     --color-fuente: #E3BEF9;
     --color-texto: #f0f0f0 ;
      
@@ -34,22 +36,23 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden; /* Evita que el contenido desborde horizontalmente */
-    
 }
 
-.container{
+.container {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; /* Cambia a viewport width */
+    height: 100vh; /* Mantén la altura en viewport height */
     overflow: hidden;
-    z-index: -1; /* Asegura que las burbujas estén detrás */
+    z-index: -1; /* Asegura que las burbujas estén detrás del contenido */
 }
+
 
 .bubbles{
     position: relative;
     display: flex;
+    
 }
 
 .bubbles span{
@@ -79,7 +82,7 @@ body {
     0% {
         transform: translateY(100vh) scale(0);
     }
-    100%{
+    100% {
         transform: translateY(-10vh) scale(1);
     }
 }
@@ -207,7 +210,12 @@ main {
     align-items: center;
 }
 
-.container_boton{
+.container_botonn:disabled{
+  background-color: var(--color-fondo-juego);
+  cursor: not-allowed; /* El cursor cambia a no permitido */
+}
+
+.container_botonn{
   color: var(--color-primario);
   height: 60px;
   width: 120px;
@@ -216,15 +224,13 @@ main {
 }
 
 .cartas{
-    background-color: rgba(255,255,255,0.2);
+    background-color: var(--color-fondo-juego);
     padding: 0 10px 10px 10px;
     border-radius: 8px;
-    
 }
 
 h1{
     text-align: center;
-    
 }
 
 button{
@@ -240,7 +246,7 @@ button:hover{
 }
 
 .informacion {
-    background-color: rgba(255,255,255,0.2);
+    background-color: var(--color-fondo-juego);
     border-radius: 18px;
     width: 300px;
     height: 140px;
@@ -261,6 +267,13 @@ button:hover{
 
 
 /*<!--Responsi-->*/
+@media (min-width: 1280px) {
+    .bubbles span {
+        width: 40px;
+        height: 40px;
+        animation-duration: calc(110s / var(--i)); /* Reduce duración */
+    }
+}
 
 @media (max-width: 768px) {
     .header_menu {
@@ -286,9 +299,19 @@ button:hover{
         flex-direction: column; /* Cambia las cartas a una disposición vertical */
         gap: 20px; /* Reduce el espacio entre las cartas */
     }
+    .juego_contenido{
+        flex-direction: column;
+    }
 
     .informacion {
         width: 100%; /* Hace que la información ocupe todo el ancho disponible */
+    }
+
+    /*Burbujas*/
+    .bubbles span {
+        width: 20px;
+        height: 20px;
+        animation-duration: calc(130s / var(--i)); /* Ajusta duración */
     }
 }
 
@@ -334,5 +357,12 @@ button:hover{
 
     .titulo_juego {
         font-size: 1.3rem; /* Ajusta el tamaño del título para pantallas pequeñas */
+    }
+
+    /*Burbujas*/
+    .bubbles span {
+        width: 15px;
+        height: 15px;
+        animation-duration: calc(150s / var(--i)); /* Aumenta la duración */
     }
 }
