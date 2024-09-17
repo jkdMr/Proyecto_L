@@ -119,7 +119,7 @@ inicializarJuego();
 // Función para generar las burbujas según el tamaño de la ventana
 function generarBurbujas() {
     const anchoPantalla = window.innerWidth;
-    const totalBubbles = anchoPantalla <= 375 ? 15 : anchoPantalla <= 768 ? 30 : anchoPantalla <= 1500 ? 10 : 40; // 15 para móviles, 30 para tablets, 50 para pantallas grandes
+    const totalBubbles = anchoPantalla <= 375 ? 15 : anchoPantalla <= 768 ? 30 : anchoPantalla <= 1500 ? 31: 40; // 15 para móviles, 30 para tablets, 50 para pantallas grandes
     const bubbleContainer = document.getElementById('bubble-container');
     
     // Limpia el contenedor de burbujas si ya hay burbujas previas
