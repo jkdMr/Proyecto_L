@@ -198,8 +198,9 @@ main {
 
 .titulo_juego {
     color: var(--color-textojuego);
-    padding: 10px;
+    padding: 2%;
 }
+.vuelva{margin-top: 10px;}
 
 .Juego {
     margin: 0 auto; /* Centra el contenedor horizontalmente */
