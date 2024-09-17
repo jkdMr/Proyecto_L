@@ -167,8 +167,22 @@ main {
     font-family: var(--fuente-inter);
     font-size: 1.5rem;
     text-align-last: center;
-
 }
+
+.contenedor_ {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    gap:7px;
+    font-family: var(--fuente-inter);
+    font-size: 1.5rem;
+    color: var(--color-texto);
+    padding: 2%; 
+    max-width: 1200px; 
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    box-sizing: border-box;
+}
+
 .section_contenedor_general{
     color: var(--color-textojuego);
 
