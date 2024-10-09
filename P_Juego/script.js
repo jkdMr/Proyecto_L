@@ -62,13 +62,13 @@ function destapar(id) {
         // Mostrar el primer número
         tarjeta1 = document.getElementById(id);
         Presultado = numeros[id];
-        tarjeta1.innerHTML = `<img class="imagen_memoria" src="./imagen_memoria/${Presultado}.png">`;
+        tarjeta1.innerHTML = `<img class="imagen_memoria" src="../imagen_memoria/${Presultado}.png">`;
         tarjeta1.disabled = true;
     } else if (tarjetasDestapadas == 2) {
         // Mostrar el segundo número
         tarjeta2 = document.getElementById(id);
         Sresultado = numeros[id];
-        tarjeta2.innerHTML = `<img class="imagen_memoria" src="./imagen_memoria/${Sresultado}.png">`;
+        tarjeta2.innerHTML = `<img class="imagen_memoria" src="../imagen_memoria/${Sresultado}.png">`;
         tarjeta2.disabled = true;
 
         // Incrementar movimientos
