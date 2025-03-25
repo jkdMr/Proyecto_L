@@ -7,7 +7,7 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
+<canvas id="fondo-animado"></canvas>
 <body>
     <header class="header">
         
@@ -28,6 +28,12 @@
         <section class="section_contenedor">
             <div class="section_contenedor_general">
                 <p >Proximamente... </p>
+                <div id="countdown">
+                    <span id="days"></span> :
+                    <span id="hours"></span> :
+                    <span id="mins"></span> :
+                    <span id="seconds"></span>
+                </div>
                 <p class="alerta">na xd selecciona arriba xd</p>
             </div>
 
@@ -36,6 +42,9 @@
 
         
     </main>
+
+    <script src="fondo.js"></script>
+    <script src="P_Mensaje/contador.js"></script>
 
 </body>
 

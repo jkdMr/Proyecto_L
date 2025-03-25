@@ -177,6 +177,28 @@ main {
     animation: animate 1s ease-in-out 1 forwards;
 }
 
+.mensaje-cumple {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-cuaternario);
+    background-color: var(--color-primario);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+#fondo-animado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Evita que interfiera con los clics */
+}
+
 /**/
 .content .eliminar{
     font-size: 20px;
