@@ -14,7 +14,7 @@ function countTimer() {
 
     if (totalSeconds <= 0) {
         // Cuando el contador llega a 0, mostrar mensaje en lugar del contador
-        countdown.innerHTML = "<h1>🎉 ¡El tiempo ha llegado! 🎉</h1>";
+        countdown.innerHTML = "<h1>🎉 ¡El tiempo ha llegado! 🎉</h1> <h1>🎉 Feliz Cumpleaños 🎉</h1> ";
         clearInterval(timerInterval); // Detiene la actualización del contador
         return;
     }
